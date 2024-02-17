@@ -1,7 +1,6 @@
 import time
 
 def Initial_product_data():
-    """Returns a dictionary containing the name and price of an item"""
     products = []
     filename = "product_data.txt"
     with open(filename, 'r') as file:
@@ -47,14 +46,21 @@ def Delete_Product(id, products):
     products.pop(Location)
     print("Product Deleted")
     return products
-    
-  
+
+def Sort_Product(products, Order):
+    for i in range(len(products)):
+        for  j in range(i+1, len(products)):
+            if Order == "Ascending":
+                pass
+            if Order == "Descending":
+                pass
+    return products  
 def main():
-    #print(Show_Products(Initial_product_data()))  
+ 
     products = Initial_product_data()
     while True:
         print(Show_Products(products))
-        print("Insert,Update,Delete,Search, or End?")
+        print("Insert,Update,Delete,Search,Sort or End?")
         action = input()
         if action == "End":
             break
@@ -73,7 +79,12 @@ def main():
         elif action == "Delete":
             id = int(input("Enter the Product ID you Want to delete: "))
             products = Delete_Product(id, products)
-    
-
+        elif action == "Search":
+            name = input("Enter the product name you are looking for: ")
+            Search_Product(name, products)
+        elif action == "Sort":
+            pass
+            
+            
 main()
     
