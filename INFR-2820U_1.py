@@ -39,13 +39,21 @@ def Insert_Product(products, id, name, price, category):
 def Update_Product(products, id, name, price, category):
     Location = int(Search_Product(id,products))
     products[Location] = (id,name,price,category)
-    print(products[Location])
+    print("Products Updated\n")
     return products
+
+def Delete_Product(id, products):
+    Location = int(Search_Product(id,products))
+    products.pop(Location)
+    print("Product Deleted")
+    return products
+    
   
 def main():
     #print(Show_Products(Initial_product_data()))  
     products = Initial_product_data()
     while True:
+        print(Show_Products(products))
         print("Insert,Update,Delete,Search, or End?")
         action = input()
         if action == "End":
@@ -62,8 +70,9 @@ def main():
             price = float(input("Enter the new Price: "))
             category = input("Enter the new Category: ")
             products = Update_Product(products, id, name, price, category)
-        else:
-            pass
+        elif action == "Delete":
+            id = int(input("Enter the Product ID you Want to delete: "))
+            products = Delete_Product(id, products)
     
 
 main()
