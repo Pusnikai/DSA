@@ -1,13 +1,12 @@
 import time
-import os
-print("Current directory:", os.getcwd())
+
 class Product:
     def  __init__(self, id, name, price, category):
         self.id = id
         self.name = name
         self.price = price
         self.category = category
-
+#test 1
 def main():
     products = []
     filename = "product_data.txt"
@@ -18,4 +17,5 @@ def main():
     
     print(products)
 
+main()
     
