@@ -78,8 +78,8 @@ def Sort_Product(products, Order):
 def main():
     products = Initial_product_data()
     while True:
-        print("Insert,Update,Delete,Search,Sort,Show or End?")
-        action = input()
+        
+        action = input("\nInsert,Update,Delete,Search,Sort,Show or End?")
         if action == "End":
             break
         elif action == "Insert":
