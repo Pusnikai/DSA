@@ -58,7 +58,6 @@ def Sort_Product(products, Order):
                     products[j], products[j+1] = products[j+1], products[j]
     return products  
 def main():
- 
     products = Initial_product_data()
     while True:
         print(Show_Products(products))
