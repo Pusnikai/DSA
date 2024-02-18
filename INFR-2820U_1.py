@@ -1,3 +1,6 @@
+#INFR-2080U Assignment 1
+#Prashanth B.Nallathamby 100784991
+
 import time
 
 def Initial_product_data():
@@ -44,11 +47,11 @@ def Update_Product(products, id, name, price, category):
 def Delete_Product(id, products):
     Location = int(Search_Product(id,products))
     products.pop(Location)
-    print("Product Deleted")
+    print("Product Deleted\n")
     return products
 
 def Sort_Product(products, Order):
-    start = time.time
+    start = time.time()
     for i in range(len(products)):
         for  j in range(0, len(products)-i-1):
             if Order == "Ascending":
@@ -57,8 +60,8 @@ def Sort_Product(products, Order):
             if Order == "Descending":
                 if products[j][2] < products[j+1][2]:
                     products[j], products[j+1] = products[j+1], products[j]
-    end = time.time
-    print(f'Time taken to sort {len(products)} items are {end - start} seconds')
+    end = time.time()
+    print("Sorting Time (seconds): ",end-start)
     return products  
 def main():
     products = Initial_product_data()
@@ -91,7 +94,7 @@ def main():
         elif action == "Show":
             print(Show_Products(products))
         else:
-            print("Invalid Action! Please try again.")          
+            print("Invalid Action! Please try again.\n")          
             
 main()
     
