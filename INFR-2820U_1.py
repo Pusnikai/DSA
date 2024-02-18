@@ -49,11 +49,13 @@ def Delete_Product(id, products):
 
 def Sort_Product(products, Order):
     for i in range(len(products)):
-        for  j in range(i+1, len(products)):
+        for  j in range(0, len(products)-i-1):
             if Order == "Ascending":
-                pass
+                if  products[j][2] > products[j+1][2]:
+                    products[j], products[j+1] = products[j+1], products[j]
             if Order == "Descending":
-                pass
+                if products[j][2] < products[j+1][2]:
+                    products[j], products[j+1] = products[j+1], products[j]
     return products  
 def main():
  
@@ -83,7 +85,10 @@ def main():
             name = input("Enter the product name you are looking for: ")
             Search_Product(name, products)
         elif action == "Sort":
-            pass
+            order = input(f"Choose an order (Ascending/Descending): ")
+            products = Sort_Product(products, order)
+        else:
+            print("Invalid Action! Please try again.")
             
             
 main()
