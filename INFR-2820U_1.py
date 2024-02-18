@@ -60,8 +60,7 @@ def Sort_Product(products, Order):
 def main():
     products = Initial_product_data()
     while True:
-        print(Show_Products(products))
-        print("Insert,Update,Delete,Search,Sort or End?")
+        print("Insert,Update,Delete,Search,Sort,Show or End?")
         action = input()
         if action == "End":
             break
@@ -86,6 +85,8 @@ def main():
         elif action == "Sort":
             order = input(f"Choose an order (Ascending/Descending): ")
             products = Sort_Product(products, order)
+        elif action == "Show":
+            print(Show_Products(products))
         else:
             print("Invalid Action! Please try again.")
             
