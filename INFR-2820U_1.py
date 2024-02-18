@@ -48,6 +48,7 @@ def Delete_Product(id, products):
     return products
 
 def Sort_Product(products, Order):
+    start = time.time
     for i in range(len(products)):
         for  j in range(0, len(products)-i-1):
             if Order == "Ascending":
@@ -56,6 +57,8 @@ def Sort_Product(products, Order):
             if Order == "Descending":
                 if products[j][2] < products[j+1][2]:
                     products[j], products[j+1] = products[j+1], products[j]
+    end = time.time
+    print(f'Time taken to sort {len(products)} items are {end - start} seconds')
     return products  
 def main():
     products = Initial_product_data()
@@ -88,8 +91,7 @@ def main():
         elif action == "Show":
             print(Show_Products(products))
         else:
-            print("Invalid Action! Please try again.")
-            
+            print("Invalid Action! Please try again.")          
             
 main()
     
