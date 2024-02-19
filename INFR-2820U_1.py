@@ -27,9 +27,9 @@ def Search_Product(idORname, products):
     for i, product in enumerate(products):
         if isinstance(idORname, int) and product[0] == idORname:
             return i 
-        elif isinstance(idORname, str) and product[1] == idORname:
+        if isinstance(idORname, str) and product[1] == idORname:
             return f"ID:{product[0]} Name:{product[1]} Price:{product[2]} Category:{product[3]}\n"
-    return None
+    return 
 
 #Function that insert new product into the array of products
 def Insert_Product(products, id, name, price, category):
@@ -79,7 +79,8 @@ def main():
     products = Initial_product_data()
     while True:
         
-        action = input("\nInsert,Update,Delete,Search,Sort,Show or End?")
+        action = input("\nInsert,Update,Delete,Search,Sort,Show or End? : ")
+        print("\n")
         if action == "End":
             break
         elif action == "Insert":
@@ -99,7 +100,7 @@ def main():
             products = Delete_Product(id, products)
         elif action == "Search":
             name = input("Enter the product name you are looking for: ")
-            Search_Product(name, products)
+            print(Search_Product(name, products))
         elif action == "Sort":
             order = input(f"Choose an order (Ascending/Descending): ")
             products = Sort_Product(products, order)
